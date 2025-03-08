@@ -30,7 +30,7 @@ footer {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0px;
 }
 
 .header {
@@ -39,7 +39,7 @@ footer {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 35px 0;
+  padding: 25px 0;
 }
 
 .header__container {
@@ -76,11 +76,14 @@ footer {
 }
 
 .nav a {
+  font-size: 20px;
   text-decoration: none;
+  appearance: none;
   color: var(--text-color);
   font-weight: bold;
   transition: transform 0.2s ease-in-out;
   white-space: nowrap;
+  transform: none !important;
 }
 
 .nav a:hover {
@@ -94,37 +97,37 @@ footer {
 }
 
 .subtitle {
-  font-size: 44px;
+  font-size: 18px;
   justify-content: flex-start;
   color: var(--secondary-color);
   margin-bottom: 220px;
+  margin-top: 0;
 }
 
-/* SECCIONES */
 .section {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 50px 0;
+  padding: 0 0;
 }
 
 .section h2 {
-  text-align: left; /* Asegura que los títulos estén alineados a la izquierda */
-  margin-bottom: 10px; /* Espacio entre el título y el texto */
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 42px;
+}
+
+.section p {
+  font-size: 52px;
 }
 
 .section-img {
-  width: 20%; /* La imagen ocupa el 40% del ancho */
-  max-height: 100%; /* Ajusta la altura de la imagen */
-  object-fit: cover; /* Evita deformaciones */
+  width: 20%;
+  max-height: 100%;
+  object-fit: cover;
   display: block;
   filter: drop-shadow(0 0 10px);
-}
-
-.section > p {
-  width: 55%; /* El texto ocupa el 55% del ancho */
-  text-align: justify;
 }
 
 /* FOOTER */
@@ -133,7 +136,7 @@ footer {
   text-align: center;
   color: var(--background-color);
   width: 100%;
-  padding: 20px 0;
+  padding: 0px 0;
 }
 
 .menu-toggle {
@@ -159,8 +162,8 @@ footer {
 }
 
 .approach-img {
-  width: 60px; /* Tamaño uniforme de las imágenes */
-  height: 60px;
+  width: 120px; /* Tamaño uniforme de las imágenes */
+  height: 120px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -171,60 +174,86 @@ footer {
   text-align: center;
 }
 
+/* Eliminar las flechas (scrollbars) de los textos y links */
+.split-parent,
+.nav a,
+.slogan span {
+  overflow: hidden;
+  white-space: nowrap;
+  scrollbar-width: none; /* Ocultar en Firefox */
+  -ms-overflow-style: none; /* Ocultar en IE y Edge */
+}
+
+/* Para Chrome, Safari y otros navegadores */
+.split-parent::-webkit-scrollbar,
+.nav a::-webkit-scrollbar,
+.slogan span::-webkit-scrollbar {
+  display: none;
+}
+
+/* 🔹 Asegurar que los enlaces no tengan un comportamiento de número */
+.nav a::-webkit-inner-spin-button,
+.nav a::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
 /* ============================= */
 /*         RESPONSIVE FIX        */
 /* ============================= */
 
-/* Ajustes para pantallas medianas (Tablets) */
-@media (max-width: 1024px) {
-  main,
-  .header__container,
-  footer {
-    max-width: 90%;
+@media (max-width: 1250px) and (min-width: 770px) {
+  .header__container {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .nav {
-    gap: 15px;
-  }
-  .nav a {
-    font-size: 14px;
+  .header {
+    padding-top: 0;
   }
 
-  .logoImg {
-    width: 140px;
+  .logo {
+    margin-bottom: 20px;
+    width: 100px;
   }
 
   .nav ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
-    text-align: center;
   }
 
-  .section {
-    flex-direction: column;
-    text-align: center;
+  .nav a {
+    font-size: 18px;
+    padding: 5px 10px;
   }
 
+  /* Ajustar tamaño del título */
+  .slogan {
+    font-size: 4rem;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Ajustar imágenes en secciones */
   .section-img {
-    width: 80%; /* Aumenta el tamaño de la imagen */
+    max-width: 80%;
+    margin: 0 auto;
   }
 
-  .section > p {
-    width: 90%;
+  /* Ajuste de tamaño para los links en este rango */
+  .approach-img {
+    width: 80px;
+    height: auto;
   }
 
-  .approach-list {
-    flex-direction: column;
-    text-align: left;
-  }
-
-  .approach {
-    flex-direction: row;
+  .section p {
+    font-size: 32px;
   }
 }
 
-/* Ajustes para pantallas pequeñas (Móviles) */
 @media (max-width: 768px) {
   .header__container {
     flex-direction: column;
@@ -250,7 +279,7 @@ footer {
   }
 
   .nav a {
-    font-size: 12px;
+    font-size: 18px;
     word-break: break-word; /* Permite cortar palabras largas */
     overflow-wrap: break-word;
     text-align: center;
@@ -263,7 +292,7 @@ footer {
   }
 
   .section {
-    padding: 20px;
+    padding: 0px;
     width: 100%;
     display: flex;
     flex-direction: column; /* Asegura que el contenido se apile */
@@ -271,26 +300,109 @@ footer {
     text-align: center;
   }
 
+  .section-content {
+    width: 100%;
+    padding: 0 15px; /* Agrega margen para evitar que el texto toque los bordes */
+  }
+
+  .section h2 {
+    font-size: 22px; /* Reduce el tamaño del título para evitar cortes */
+  }
+
   .section > p {
     width: 100%;
+    font-size: 18px;
+    line-height: 1.5; /* Mejora la legibilidad */
   }
 
   .section-img {
-    max-width: 90%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover; /* Mantiene proporciones correctas */
+    margin-bottom: 15px; /* Espacio entre imagen y texto */
   }
 
   .approach {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0;
   }
 
   .approach-img {
-    width: 80px;
-    height: 80px;
+    width: 100px; /* Asegura tamaño uniforme */
+    height: auto;
+    object-fit: cover;
+  }
+
+  .approach p {
+    font-size: 14px;
+    width: 90%;
   }
 
   .subtitle {
-    font-size: 24px;
+    font-size: 40px;
+    padding: 0 15px;
+  }
+}
+
+/* Ajustes para pantallas pequeñas (Móviles) */
+/* Ajustes para pantallas ultra pequeñas (menores a 550px) */
+@media (max-width: 550px) {
+  /* Evitar desbordes */
+  * {
+    max-width: 100%;
+  }
+
+  /* Ajustar el tamaño del menú y el header */
+  .nav ul {
+    grid-template-columns: repeat(2, 1fr); /* Reduce a 2 columnas */
+    gap: 5px;
+  }
+
+  .nav a {
+    font-size: 14px;
+    padding: 3px;
+    appearance: none; /* Elimina cualquier estilo nativo de navegador */
+    text-decoration: none; /* Elimina el subrayado */
+    background: none; /* Asegura que no haya fondos extraños */
+    border: none; /* Evita que se vea como un botón */
+    outline: none; /* Elimina el contorno blanco */
+    color: inherit; /* Usa el color del texto definido */
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+
+  .logoImg {
+    width: 70px; /* Reducir aún más el logo */
+  }
+
+  /* Ajustar tamaño del texto y párrafos */
+  .section h2 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .section p {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  /* Ajustar imágenes */
+  .section-img {
+    max-width: 95%;
+  }
+
+  .approach-img {
+    width: 60px; /* Tamaño más pequeño para imágenes */
+  }
+
+  /* Slogan */
+  .slogan {
+    font-size: 14px;
+    padding: 8px;
   }
 }

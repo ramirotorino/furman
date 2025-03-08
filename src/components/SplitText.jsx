@@ -18,6 +18,9 @@ const SplitText = ({
   const [inView, setInView] = useState(false);
   const ref = useRef();
   const animatedCount = useRef(0);
+  const [fontSize, setFontSize] = useState(
+    window.innerWidth < 500 ? "2rem" : "5rem"
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,6 +37,16 @@ const SplitText = ({
 
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
+
+  // Detecta cambios de tamaño de pantalla y ajusta el tamaño del texto
+  useEffect(() => {
+    const handleResize = () => {
+      setFontSize(window.innerWidth < 500 ? "2rem" : "5rem");
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const springs = useSprings(
     letters.length,
@@ -63,15 +76,16 @@ const SplitText = ({
       style={{
         textAlign,
         overflow: "hidden",
-        display: "block", // ✅ Sin comillas invertidas
+        display: "block",
         whiteSpace: "normal",
         wordWrap: "break-word",
-        fontSize: "6rem", // ✅ Sin comillas invertidas
+        fontSize: fontSize, // Tamaño dinámico según la pantalla
         fontWeight: "bold",
-        width: "100%", // ✅ Correcto
-        maxWidth: 1200, // ✅ Sin comillas, ya que es un número
+        width: "90%",
+        maxWidth: 1200,
         margin: "100px auto",
         color: "#f25c05",
+        lineHeight: "1.2",
       }}
     >
       {words.map((word, wordIndex) => (

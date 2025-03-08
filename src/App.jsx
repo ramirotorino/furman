@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import "./styles/style.css";
 import SplitText from "./components/SplitText";
-import SplashCursor from "./components/SplashCursor";
 
 const handleAnimationComplete = () => {
   console.log("All letters have animated!");
@@ -13,7 +12,6 @@ function App() {
 
   return (
     <>
-      <SplashCursor /> {/* Agrega el componente aquí */}
       {/* SEO Mejorado */}
       <Helmet>
         <title>Sandra Furman - Counsellor & Life Coach</title>
@@ -97,8 +95,8 @@ function App() {
             className="section-img"
           />
           <div className="section-content">
-            <h2>About</h2>
-            <p>
+            <h2 className="section__title">About me!</h2>
+            <p className="section__parrafo">
               Hello! I’m Sandra Furman, a dedicated counsellor and life coach
               with a passion for empowering individuals to unlock their full
               potential and live their most fulfilling lives.
@@ -113,8 +111,8 @@ function App() {
             className="section-img"
           />
           <div className="section-content">
-            <h2>My Philosophy</h2>
-            <p>
+            <h2 className="section__title">My Philosophy</h2>
+            <p className="section__parrafo">
               I believe that every individual possesses the inherent strength
               and resilience to overcome challenges and achieve their goals.
             </p>
@@ -137,7 +135,7 @@ function App() {
                   className="approach-img"
                 />
                 <p>
-                  <strong>Cognitive Behavioral Therapy (CBT)</strong> -
+                  <strong>Cognitive Behavioral Therapy (CBT)</strong> <br></br>-
                   Transforming negative thought patterns and behaviors.
                 </p>
               </div>
@@ -148,8 +146,8 @@ function App() {
                   className="approach-img"
                 />
                 <p>
-                  <strong>Person-Centered Therapy</strong> - Emphasizing
-                  empathy, acceptance, and active listening.
+                  <strong>Person-Centered Therapy</strong> <br></br>-
+                  Emphasizing empathy, acceptance, and active listening.
                 </p>
               </div>
               <div className="approach">
@@ -159,8 +157,9 @@ function App() {
                   className="approach-img"
                 />
                 <p>
-                  <strong>Solution-Focused Brief Therapy (SFBT)</strong> -
-                  Identifying and leveraging strengths to find solutions.
+                  <strong>Solution-Focused Brief Therapy (SFBT)</strong>{" "}
+                  <br></br>- Identifying and leveraging strengths to find
+                  solutions.
                 </p>
               </div>
             </div>
