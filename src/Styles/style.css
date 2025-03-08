@@ -1,0 +1,296 @@
+/* Tipografía y Configuración Global */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
+
+:root {
+  --primary-color: #456ebf; /* Color oscuro para mejorar visibilidad del logo */
+  --secondary-color: #6986bf;
+  --text-color: #f25c05;
+  --text-color-main: #456ebf;
+  --background-color: #000000;
+  --hover-color: #6986bf;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+/* Contenedor principal centrado */
+main,
+.header__container,
+footer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  background: url("./images/wood.jpg") no-repeat center center/cover;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 35px 0;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  width: 160px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
+}
+
+.nav ul {
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 25px;
+  flex-wrap: nowrap;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.nav a:hover {
+  transform: scale(1.1);
+  color: var(--hover-color);
+}
+.slogan {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+}
+
+.subtitle {
+  font-size: 44px;
+  justify-content: flex-start;
+  color: var(--secondary-color);
+  margin-bottom: 220px;
+}
+
+/* SECCIONES */
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 50px 0;
+}
+
+.section h2 {
+  text-align: left; /* Asegura que los títulos estén alineados a la izquierda */
+  margin-bottom: 10px; /* Espacio entre el título y el texto */
+}
+
+.section-img {
+  width: 20%; /* La imagen ocupa el 40% del ancho */
+  max-height: 100%; /* Ajusta la altura de la imagen */
+  object-fit: cover; /* Evita deformaciones */
+  display: block;
+  filter: drop-shadow(0 0 10px);
+}
+
+.section > p {
+  width: 55%; /* El texto ocupa el 55% del ancho */
+  text-align: justify;
+}
+
+/* FOOTER */
+footer {
+  background: url("./images/wood.jpg") no-repeat center center/cover;
+  text-align: center;
+  color: var(--background-color);
+  width: 100%;
+  padding: 20px 0;
+}
+
+.menu-toggle {
+  display: none;
+  background: #222;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+.approach-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.approach {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.approach-img {
+  width: 60px; /* Tamaño uniforme de las imágenes */
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.split-parent {
+  font-size: 4rem; /* Ajusta el tamaño del texto */
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ============================= */
+/*         RESPONSIVE FIX        */
+/* ============================= */
+
+/* Ajustes para pantallas medianas (Tablets) */
+@media (max-width: 1024px) {
+  main,
+  .header__container,
+  footer {
+    max-width: 90%;
+  }
+
+  .nav {
+    gap: 15px;
+  }
+  .nav a {
+    font-size: 14px;
+  }
+
+  .logoImg {
+    width: 140px;
+  }
+
+  .nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    text-align: center;
+  }
+
+  .section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-img {
+    width: 80%; /* Aumenta el tamaño de la imagen */
+  }
+
+  .section > p {
+    width: 90%;
+  }
+
+  .approach-list {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .approach {
+    flex-direction: row;
+  }
+}
+
+/* Ajustes para pantallas pequeñas (Móviles) */
+@media (max-width: 768px) {
+  .header__container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    grid-template-rows: repeat(2, auto); /* 2 filas */
+    gap: 15px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .nav a {
+    font-size: 12px;
+    word-break: break-word; /* Permite cortar palabras largas */
+    overflow-wrap: break-word;
+    text-align: center;
+    display: block;
+    padding: 5px;
+  }
+
+  .logoImg {
+    width: 120px;
+  }
+
+  .section {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido se apile */
+    align-items: center;
+    text-align: center;
+  }
+
+  .section > p {
+    width: 100%;
+  }
+
+  .section-img {
+    max-width: 90%;
+  }
+
+  .approach {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .approach-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .subtitle {
+    font-size: 24px;
+  }
+}

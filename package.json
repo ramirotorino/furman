@@ -1,0 +1,31 @@
+{
+  "name": "furman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramirotorino/furman.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramirotorino/furman/issues"
+  },
+  "homepage": "https://github.com/ramirotorino/furman#readme",
+  "dependencies": {
+    "@react-spring/web": "^9.7.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-router-dom": "^7.3.0",
+    "vite": "^6.2.1"
+  }
+}
